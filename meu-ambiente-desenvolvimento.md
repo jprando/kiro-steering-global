@@ -163,3 +163,27 @@ body com múltiplas linhas"
 ```
 
 Isso se aplica a **qualquer** mensagem com body (mais de uma linha). Subject-only (`-m "uma linha"`) funciona normalmente.
+
+### 12. Pasta `.local` para arquivos temporários
+
+Se o workspace/projeto aberto no Kiro possuir uma pasta `.local` na raiz, **usar essa pasta para criar arquivos temporários** (scripts auxiliares, dumps, saídas de debug, etc.).
+
+Convenção: a pasta `.local` geralmente já está registrada no `.gitignore` do projeto.
+
+**Procedimento:**
+1. Verificar se `.local/` existe na raiz do projeto.
+2. Se existir, usar `.local/` como destino de arquivos temporários.
+3. Antes de criar arquivos, verificar se `.local` está no `.gitignore`.
+4. Se `.local` **não** estiver no `.gitignore`: **perguntar ao usuário** se pode adicionar `.local` ao `.gitignore` antes de prosseguir. Nunca alterar o `.gitignore` sem confirmação explícita.
+
+Se `.local/` **não** existir no projeto, criar temporários onde fizer mais sentido (raiz, `/tmp`, etc.) — sem restrição.
+
+```bash
+# ✅ Correto — .local/ existe, usar como destino
+rtk node .local/script-temp.js
+rtk python3 .local/verifica-algo.py
+
+# ❌ Errado — .local/ existe mas temporário criado fora dela
+node /tmp/script.js
+node script-temp.js
+```
