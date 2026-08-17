@@ -261,16 +261,19 @@ Após resolver um problema **não-trivial** (exigiu investigação, múltiplas t
 
 #### Procedimento
 
-1. **Inline** — se encaixa em `knowledge/operacao/troubleshooting.md`: adicionar seção seguindo formato:
+1. **Junto ao conceito (preferencial)** — quando o problema está diretamente ligado a um conceito existente no bundle (feature, decisão, arquitetura), documentar a lição **dentro do próprio conceito** em seção dedicada (ex: `## Problema resolvido`, `## Limitações conhecidas`, `## Motivação técnica`). Isso mantém o contexto próximo de onde o desenvolvedor naturalmente consulta. O `troubleshooting.md` recebe apenas um resumo breve com link para o conceito.
+2. **Inline no troubleshooting** — se o problema é puramente operacional e nenhum conceito existente é contexto direto (ex: configuração de proxy, porta ocupada, volume Docker): adicionar seção completa em `knowledge/operacao/troubleshooting.md`:
    ```markdown
    ### Título curto do problema
 
    **Causa**: Explicação da causa raiz.
    **Solução**: Passos para resolver.
    ```
-2. **Standalone** — conceito novo que merece documento próprio: criar em diretório apropriado com `type: Playbook` (troubleshooting) ou `type: Decisão` (escolha técnica). Body com headings: `## Sintomas`, `## Causa`, `## Solução`, `## Relacionados`.
-3. Atualizar `log.md` com entrada datada.
-4. Atualizar `index.md` se documento novo foi criado.
+3. **Standalone** — conceito novo que merece documento próprio: criar em diretório apropriado com `type: Playbook` (troubleshooting) ou `type: Decisão` (escolha técnica). Body com headings: `## Sintomas`, `## Causa`, `## Solução`, `## Relacionados`.
+4. Atualizar `log.md` com entrada datada.
+5. Atualizar `index.md` se documento novo foi criado.
+
+> **Princípio:** Não jogar tudo no `troubleshooting.md`. Preferir documentar próximo aos conceitos, explicando **por que** determinada abordagem foi implementada para resolver o problema. O troubleshooting centralizado serve como índice e fallback para problemas sem conceito associado.
 
 ### 4.6 Ao executar git commit
 

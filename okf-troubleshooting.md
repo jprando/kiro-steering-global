@@ -25,7 +25,15 @@ Se o OKF tiver a solução: aplicar diretamente, citando a fonte.
 
 Seguir #[[steering:global:/home/jeudi/.kiro/steering/okf-knowledge-base.md]] §4.5 (Ao registrar solução de troubleshooting) — critérios, formatos e procedimento completo estão lá.
 
-### 2.1 Cross-referência nos conceitos (Problemas Conhecidos)
+> **Princípio central:** Preferir documentar lições e soluções **junto ao conceito** relacionado (feature, decisão, arquitetura) em vez de centralizar tudo no `troubleshooting.md`. O objetivo é que o desenvolvedor encontre a informação onde naturalmente consulta. O `troubleshooting.md` serve como índice e fallback para problemas puramente operacionais sem conceito associado.
+
+### 2.1 Onde documentar (ordem de preferência)
+
+1. **No conceito existente** — se o problema está ligado a uma feature, decisão ou componente documentado, adicionar seção `## Problema resolvido` ou `## Limitações conhecidas` explicando o *why* da abordagem implementada.
+2. **No troubleshooting.md** — apenas se o problema é puramente operacional (setup, infra, configuração) sem conceito associado.
+3. **Documento standalone** — quando a complexidade justifica (múltiplos sintomas, investigação extensa, decisão arquitetural).
+
+### 2.2 Cross-referência nos conceitos (Problemas Conhecidos)
 
 Além de registrar no `troubleshooting.md`, o agente DEVE cross-referenciar nos arquivos de conceito relevantes. Objetivo: dar visibilidade aos troubleshooting conhecidos no local onde o desenvolvedor naturalmente consulta.
 
